@@ -77,4 +77,8 @@ app.post('/log-unfollow', (req, res) => {
 app.get('/history', (req, res) => res.json(unfollowLog));
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Railway Server running on port ${PORT}`));
+
+// IMPORTANT: Listen on '0.0.0.0' so Railway can route traffic to the app
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running and listening on port ${PORT}`);
+});
