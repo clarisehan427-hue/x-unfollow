@@ -63,6 +63,10 @@ app.post('/log-unfollow', (req, res) => {
     res.json({ status: "success" });
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`LIVE_ON_PORT_${PORT}`);
+const PORT = process.env.PORT || 8080;
+
+// Listen on [::] to support both IPv4 (0.0.0.0) and IPv6
+app.listen(PORT, '::', () => {
+    console.log(`🚀 BRIDGE IS OFFICIALLY LIVE`);
+    console.log(`Listening on Port: ${PORT} (IPv4 + IPv6)`);
 });
