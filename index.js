@@ -5,6 +5,7 @@ const { TwitterApi } = require('twitter-api-v2');
 const app = express();
 app.use(express.json());
 
+// PORT is now declared only once at the top
 const PORT = process.env.PORT || 8080;
 const MY_ID = "1675863612064186368";
 
@@ -62,8 +63,6 @@ app.post('/log-unfollow', (req, res) => {
     console.log("Unfollow Logged:", req.body);
     res.json({ status: "success" });
 });
-
-const PORT = process.env.PORT || 8080;
 
 // Listen on [::] to support both IPv4 (0.0.0.0) and IPv6
 app.listen(PORT, '::', () => {
